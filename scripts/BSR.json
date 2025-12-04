@@ -1,0 +1,92 @@
+{
+    "switchKey": "Key_QuoteLeft",
+    "mouseMoveMap": {
+        "startPos": { "x": 0.5, "y": 0.5 },
+        "speedRatio": 16.0
+    },
+    "keyMapNodes": [
+        {
+            "comment": "Change Char 1 - Key Q",
+            "type": "KMT_CLICK",
+            "key": "Key_Q",
+            "pos": { "x": 0.945, "y": 0.185 },
+            "switchMap": false
+        },
+        {
+            "comment": "Ult Char 1 - Key 1",
+            "type": "KMT_CLICK",
+            "key": "Key_1",
+            "pos": { "x": 0.881, "y": 0.187 },
+            "switchMap": false
+        },
+        {
+            "comment": "Change Char 2 - Key E",
+            "type": "KMT_CLICK",
+            "key": "Key_E",
+            "pos": { "x": 0.945, "y": 0.290 },
+            "switchMap": false
+        },
+        {
+            "comment": "Ult Char 2 - Key 2",
+            "type": "KMT_CLICK",
+            "key": "Key_2",
+            "pos": { "x": 0.881, "y": 0.292 },
+            "switchMap": false
+        },
+        {
+            "comment": "Basic Attack - Key J",
+            "type": "KMT_CLICK",
+            "key": "Key_J",
+            "pos": { "x": 0.879, "y": 0.773 },
+            "switchMap": false
+        },
+        {
+            "comment": "Technique - Key K",
+            "type": "KMT_CLICK",
+            "key": "Key_K",
+            "pos": { "x": 0.786, "y": 0.692 },
+            "switchMap": false
+        },
+        {
+            "comment": "Ultimate - Key I",
+            "type": "KMT_CLICK",
+            "key": "Key_I",
+            "pos": { "x": 0.848, "y": 0.568 },
+            "switchMap": false
+        },
+        {
+            "comment": "Battlefield Skill - Key F",
+            "type": "KMT_CLICK",
+            "key": "Key_F",
+            "pos": { "x": 0.1025, "y": 0.548 },
+            "switchMap": false
+        },
+        {
+            "comment": "Counter - Key Space",
+            "type": "KMT_CLICK",
+            "key": "Key_Space",
+            "pos": { "x": 0.938, "y": 0.572 },
+            "switchMap": false
+        },
+        {
+            "comment": "Esquiva - Key R",
+            "type": "KMT_CLICK",
+            "key": "Key_R",
+            "pos": { "x": 0.785, "y": 0.879 },
+            "switchMap": false
+        },
+        {
+            "comment": "Move - Keys WASD",
+            "type": "KMT_STEER_WHEEL",
+            "centerPos": { "x": 0.1895, "y": 0.742 },
+            "leftKey": "Key_A",
+            "rightKey": "Key_D",
+            "upKey": "Key_W",
+            "downKey": "Key_S",
+            "leftOffset":   0.060,
+            "rightOffset":  0.060,
+            "upOffset":     0.120,
+            "downOffset":   0.120
+        }
+    ]
+}

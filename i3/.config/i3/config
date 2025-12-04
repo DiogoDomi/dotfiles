@@ -1,0 +1,169 @@
+# ==============================================================================
+# DEFINIÇÕES BÁSICAS
+# ==============================================================================
+
+# Tecla Windows (Super)
+set $mod Mod4
+
+# Tecla Alt
+set $alt Mod1
+
+# Fontes
+font pango:monospace 8
+
+# Remove as barras de título (Visual Limpo)
+default_border pixel 2
+default_floating_border pixel 2
+hide_edge_borders smart
+
+# Espaçamento entre as janelas
+smart_gaps on
+gaps inner 0
+gaps outer 0
+
+# Permitir arrastar janelas flutuantes com Win + Mouse
+floating_modifier $mod
+
+# Aplica a resolução de tela salva no Arandr
+exec_always --no-startup-id sh ~/.screenlayout/monitor_only.sh
+#exec_always --no-startup-id sh ~/.screenlayout/notebook_only.sh
+
+# Autostart (Compositor - vsync sem efeitos visuais)
+exec --no-startup-id picom -b --no-shadow --no-fading-openclose --vsync
+
+# ==============================================================================
+# APLICATIVO
+# ==============================================================================
+
+# Terminal: <Super>Return
+bindsym $mod+Return exec xfce4-terminal
+
+# Launcher (Rofi): <Super>r
+bindsym $mod+r exec "rofi -show drun -show-icons"
+
+# Modo RUN (Procura binários/comandos diretos)
+bindsym $mod+Shift+r exec "rofi -show run"
+
+# Screenshot: <Shift><Super>s
+bindsym $mod+Shift+s exec xfce4-screenshooter
+
+# Logout: <Ctrl><Alt>Delete
+bindsym Ctrl+$alt+Delete exec "xfce4-session-logout"
+
+# ==============================================================================
+# GERENCIAMENTO DE JANELAS
+# ==============================================================================
+
+# Fechar Janela: <Alt>Delete
+bindsym $alt+Delete kill
+
+# Alternar tela cheia 
+bindsym $mod+Shift+f fullscreen toggle
+
+# Forçar a próxima janela a abrir na Horizontal (lado a lado)
+bindsym $mod+Shift+h split h
+
+# Forçar a próxima janela a abrir na Vertical (uma embaixo da outra)
+bindsym $mod+Shift+v split v
+
+# ==============================================================================
+# FOCO (NAVEGAR ENTRE JANELAS)
+# ==============================================================================
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Foco para janelas flutuantes vs tiled
+bindsym $mod+space focus mode_toggle
+
+# Soltar janela da grade (fazer flutuar) ou prender de volta
+bindsym $mod+Shift+space floating toggle
+
+# ==============================================================================
+# MOVER JANELAS DE LUGAR
+# ==============================================================================
+
+bindsym $mod+Left move left
+bindsym $mod+Down move down
+bindsym $mod+Up move up
+bindsym $mod+Right move right
+
+# ==============================================================================
+# WORKSPACES
+# ==============================================================================
+
+# Permite voltar ao workspace anterior apertando a mesma tecla duas vezes
+workspace_auto_back_and_forth yes
+
+# Nomes dos workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+
+# --- IR para Workspace ---
+bindsym $alt+F1 workspace number $ws1
+bindsym $alt+F2 workspace number $ws2
+bindsym $alt+F3 workspace number $ws3
+bindsym $alt+F4 workspace number $ws4
+
+# --- LEVAR Janela para Workspace ---
+bindsym $alt+1 move container to workspace number $ws1
+bindsym $alt+2 move container to workspace number $ws2
+bindsym $alt+3 move container to workspace number $ws3
+bindsym $alt+4 move container to workspace number $ws4
+
+# ==============================================================================
+# CONTROLE DO SISTEMA I3
+# ==============================================================================
+
+# Recarregar Config: Win + Shift + C
+bindsym $mod+Shift+c reload
+
+# Reiniciar i3: Win + Shift + R
+bindsym $mod+c restart
+
+# Modo Resize (Redimensionar janelas)
+bindsym $mod+Shift+d mode "resize"
+
+mode "resize" {
+    bindsym Left resize shrink width 5 px or 5 ppt
+    bindsym Down resize grow height 5 px or 5 ppt
+    bindsym Up resize shrink height 5 px or 5 ppt
+    bindsym Right resize grow width 5 px or 5 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# Layouts (Abas/Lista)
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# ==============================================================================
+# CONTROLE DE ÁUDIO (Volume)
+# ==============================================================================
+
+# Aumentar volume (limite de 150% se usar pactl, mas geralmente vai até onde der)
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+
+# Diminuir volume
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+# Mute (Mudo)
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# Controle de Microfone (Opcional)
+# bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# ==============================================================================
+# TROCA DE MONITOR (IMPORTANTE)
+# ==============================================================================
+
+# Use F8 quando estiver com o monitor grande
+bindsym $mod+F8 exec --no-startup-id sh ~/.screenlayout/monitor_only.sh
+
+# Use F7 quando desconectar o monitor e usar só o notebook
+bindsym $mod+F7 exec --no-startup-id sh ~/.screenlayout/notebook_only.sh

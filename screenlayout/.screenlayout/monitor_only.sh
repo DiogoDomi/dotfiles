@@ -1,0 +1,6 @@
+#!/bin/sh
+xrandr --output eDP-1 --off --output HDMI-1 --off --output DP-1 --primary --mode 1440x900 --pos 0x0 --rotate normal
+
+sleep 1
+
+nitrogen --restore
